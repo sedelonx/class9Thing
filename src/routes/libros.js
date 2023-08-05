@@ -8,18 +8,18 @@ const { getAllLibros, getLibroById, createLibro, updateLibro, deleteLibro} = req
 const { requiredScopes } = require("express-oauth2-jwt-bearer");
 
 // Ruta para obtener todos los libros
-router.get("/", requiredScopes("read:libros"), getAllLibros);
+router.get("/", requiredScopes("read:book"), getAllLibros);
 
 // Ruta para obtener un libro por id
-router.get("/:id", requiredScopes("read:libros"), getLibroById);
+router.get("/:id", requiredScopes("read:book"), getLibroById);
 
 // Ruta para crear un nuevo Libro
-router.post("/", requiredScopes("write:libros"), createLibro);
+router.post("/", requiredScopes("write:book"), createLibro);
 
 // Ruta para actualizar un Libro existente
-router.put("/:id", requiredScopes("write:libros"), updateLibro);
+router.put("/:id", requiredScopes("write:book"), updateLibro);
 
 // Ruta para eliminar un Libro
-router.delete("/:id", requiredScopes("write:libros"), deleteLibro);
+router.delete("/:id", requiredScopes("write:book"), deleteLibro);
 
 module.exports = router;
